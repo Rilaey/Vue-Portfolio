@@ -1,49 +1,95 @@
 <template>
   <section class="flex flex-col items-center justify-center">
-  <div>
-    <h2 class="italic text-white m-5 mt-10 text-3xl">Have Any Questions?</h2>
-  </div>
-    <form @submit.prevent="submitForm" class="max-w-md mx-auto mt-8">
+    <div>
+      <h2 class="italic text-white m-5 mt-10 text-3xl contact-header">
+        Have Any Questions?
+      </h2>
+    </div>
+    <form ref="form" @submit.prevent="sendEmail" class="max-w-md mx-auto mt-8">
       <div class="mb-4">
-        <label for="name" class="block text-white italic font-semibold mb-2">Name</label>
-        <input v-model="formData.name" type="text" id="name" name="name" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:border-blue-500" required>
+        <label for="name" class="block text-white italic font-semibold mb-2"
+          >Name</label
+        >
+        <input
+        v-model="formData.user_name"
+          type="text"
+          name="user_name"
+          class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:border-blue-500"
+          required
+        />
       </div>
       <div class="mb-4">
-        <label for="email" class="block text-white italic font-semibold mb-2">Email</label>
-        <input v-model="formData.email" type="email" id="email" name="email" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:border-blue-500" required>
+        <label for="email" class="block text-white italic font-semibold mb-2"
+          >Email</label
+        >
+        <input
+        v-model="formData.user_email"
+          type="email"
+          name="user_email"
+          class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:border-blue-500"
+          required
+        />
       </div>
       <div class="mb-4">
-        <label for="message" class="block text-white italic font-semibold mb-2">Message</label>
-        <textarea v-model="formData.message" id="message" name="message" rows="4" class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:border-blue-500" required></textarea>
+        <label for="message" class="block text-white italic font-semibold mb-2"
+          >Message</label
+        >
+        <textarea
+        v-model="formData.message"
+          name="message"
+          rows="4"
+          class="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:border-blue-500"
+          required
+        ></textarea>
       </div>
       <div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+        <button
+          type="submit"
+          value="Send"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Submit
+        </button>
       </div>
     </form>
-    </section>
-  </template>
+  </section>
+</template>
 
-  <script setup>
-  const formData = {
-    name: '',
-    email: '',
-    message: '',
-  };
+<script setup>
+import { ref } from "vue";
+import emailjs from "@emailjs/browser";
 
-  const submitForm = () => {
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill in all the fields.');
-      return;
-    }
+const form = ref(null);
 
-    // Send the form data to the server or perform any other action here
-    alert('Form submitted successfully!');
-    formData.name = '';
-    formData.email = '';
-    formData.message = '';
-  };
-  </script>
+const formData = ref({
+  user_name: '',
+  user_email: '',
+  message: ''
+});
 
-  <style>
-  /* Optional: You can add custom styles here */
-  </style>
+const sendEmail = () => {
+  emailjs
+    .sendForm(
+      "service_dw40vid",
+      "template_rpbdm2h",
+      form.value,
+      "tcvghC_602qwzMEG2"
+    )
+    .then((result) => {
+      formData.value.user_name = '';
+      formData.value.user_email = '';
+      formData.value.message = '';
+      alert('Message sent successfully!');
+    })
+    .catch((error) => {
+      console.log("FAILED...", error.text);
+    });
+};
+</script>
+
+<style>
+.contact-header {
+  border-bottom: 3px solid rgba(2, 24, 43, 1);
+  padding-bottom: 10px;
+}
+</style>

@@ -30,7 +30,7 @@
     "image": "src/assets/weather-logo.jpg",
     "altText": "WF Logo",
     "title": "Weather Forecast",
-    "description": "Local Weather is a user-friendly and intuitive application designed to provide you with up-to-date weather information in a 5 day forecast at your fingertips. With its sleek and modern interface, the app offers a comprehensive overview of the current weather conditions in your desired location, enabling you to make informed decisions and plan your activities accordingly.",
+    "description": "Local Weather is a user-friendly and intuitive application designed to provide you with up-to-date weather information in a 5 day forecast at your fingertips. The app offers a comprehensive overview of the current weather conditions in your area. ",
     "github": "https://github.com/Rilaey/cool-weather",
     "application": "https://rilaey.github.io/cool-weather/",
     "tools": "Vite, DaisyUI, TailwindCSS, OpenWeatherAPI"

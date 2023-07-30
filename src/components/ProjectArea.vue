@@ -4,7 +4,7 @@
     id="projects"
   >
     <div>
-      <h2 class="text-white text-3xl m-5 italic">
+      <h2 class="text-white text-3xl m-5 italic project-header">
         What I've Been Working On
       </h2>
     </div>
@@ -44,12 +44,17 @@ onMounted(async () => {
   background: linear-gradient(to bottom, #1B1725, #534B62);
 }
 
+.project-header {
+  border-bottom: 3px solid rgba(2, 24, 43, 1);
+    padding-bottom: 10px;
+}
+
 @media screen and (max-width: 700px) {
   .project-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 80px;
   }
 }
 </style>

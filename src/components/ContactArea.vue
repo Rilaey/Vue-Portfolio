@@ -2,7 +2,7 @@
   <section class="contact-section flex justify-evenly p-10 items-center w-full" id="contact">
     <div class="flex flex-col justify-center items-center">
       <div>
-        <h2 class="italic text-white m-10 text-3xl">Connect With Me.</h2>
+        <h2 class="italic text-white m-10 text-3xl contact-header">Connect With Me.</h2>
       </div>
       <div class="flex justify-evenly items-center">
         <a class="p-5" href="https://www.linkedin.com/in/riley-newhart-667b43128/"><img :src="linkedInImage" alt="linkedin logo" class="social-img" /></a>

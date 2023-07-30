@@ -1,11 +1,11 @@
 <template>
   <section
-    class="flex items-center w-full p-10 about-section"
+    class="flex items-center p-10 w-full about-section"
     id="about"
   >
     <div class="w-6/12 m-5">
       <h2
-        class="text-white m-5 mb-10 text-2xl italic animate__animated animate__bounceInLeft about-text"
+        class="text-white m-5 mb-10 text-2xl italic animate__animated animate__bounceInLeft about-text about-head-text"
       >
         Front End Developer<span
           class="text-black animate__animated animate__bounceInLeft"
@@ -13,7 +13,7 @@
         >
       </h2>
       <h2
-        class="text-white m-5 mb-10 text-xl italic animate__animated animate__bounceInLeft about-text"
+        class="text-white m-5 mb-10 text-xl italic animate__animated animate__bounceInLeft about-text about-head-text"
       >
         Hello, My Name Is {{ firstName }} {{ lastName
         }}<span class="text-black animate__animated animate__bounceInLeft"
@@ -33,18 +33,18 @@
         I have been programming for about 2 years now with a main focus on web development. Thanks for taking a look at my portfolio!
       </p>
     </div>
-    <div class="w-6/12 m-5">
+    <div class="w-6/12 m-5 about-picture">
       <img
         :src="data.image"
         alt="about-section-tech"
-        class="rounded-lg animate__animated animate__bounceInRight"
+        class="animate__animated animate__bounceInRight"
       />
     </div>
   </section>
 </template>
 
 <script setup>
-import FrontEndDevelopmentImage from "../assets/frontEndDevelopment.jpg";
+import FrontEndDevelopmentImage from "../assets/about-pic.png";
 import { defineProps, reactive } from "vue";
 import "animate.css";
 
@@ -69,19 +69,30 @@ const data = reactive({
   display: none;
   }
 
+  .about-head-text {
+    width: 50%;
+    border-bottom: 3px solid rgba(2, 24, 43, 1);
+    padding-bottom: 10px;
+  }
+
 @media screen and (max-width: 920px) {
   .about-section {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 0px;
-    padding: 0px;
+    padding-top: 60px;
+  }
+
+  .about-picture {
+    width: 100%;
+    /* height: 300px; */
   }
 
   .about-text {
     font-size: 1.5rem;
     margin: 10% 0%;
-    padding: 0%;
+    width: 100%;
   }
 }
 
