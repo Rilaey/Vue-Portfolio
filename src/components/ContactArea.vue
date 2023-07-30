@@ -1,26 +1,26 @@
 <template>
-  <section class="contact-section flex justify-evenly h-screen items-center">
-    <div>
-      <ContactForm />
-    </div>
+  <section class="contact-section flex justify-evenly p-10 items-center w-full" id="contact">
     <div class="flex flex-col justify-center items-center">
       <div>
         <h2 class="italic text-white m-10 text-3xl">Connect With Me.</h2>
       </div>
-      <div class="flex">
-        <a href="https://www.linkedin.com/in/riley-newhart-667b43128/"><img :src="linkedInImage" alt="linkedin logo" class="social-img" /></a>
-        <a href="https://github.com/Rilaey"><img :src="twitterImage" alt="twitter logo" class="social-img twitter-logo" /></a>
-        <a href="https://twitter.com/codingWithRiley"><img :src="githubImage" alt="github logo" class="social-img" /></a>
+      <div class="flex justify-evenly items-center">
+        <a class="p-5" href="https://www.linkedin.com/in/riley-newhart-667b43128/"><img :src="linkedInImage" alt="linkedin logo" class="social-img" /></a>
+        <a class="p-5" href="https://github.com/Rilaey"><img :src="twitterImage" alt="twitter logo" class="social-img twitter-logo" /></a>
+        <a class="p-5" href="https://twitter.com/codingWithRiley"><img :src="githubImage" alt="github logo" class="social-img" /></a>
       </div>
+    </div>
+    <div>
+      <ContactForm />
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import LinkedinLogo from "../assets/linkedin.png";
-import TwitterLogo from "../assets/twitter-logo.png";
-import GithubLogo from "../assets/github-mark.png";
+import LinkedinLogo from "../assets/In-Blue-96.png";
+import TwitterLogo from "../assets/twitter1.png";
+import GithubLogo from "../assets/github-mark-white.png";
 import ContactForm from "./ContactForm.vue";
 
 const linkedInImage = ref(LinkedinLogo);
@@ -30,16 +30,31 @@ const githubImage = ref(GithubLogo);
 
 <style>
 .social-img {
-  max-width: 100%;
-  height: 20vh;
-  margin: 10px;
-}
-
-.twitter-logo {
-  opacity: 0.7;
+  width: 100%;
+  height: 10vh;
 }
 
 .contact-section {
-  background: linear-gradient(to bottom, #d7263d, #307351);
+  background: linear-gradient(to bottom, #534B62, #1B1725);
+}
+
+@media screen and (max-width: 930px) {
+  .contact-section {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .social-img {
+    width: 100%;
+    height: 10vh;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  /* .contact-section {
+    padding: 0px;
+    margin: 0px;
+  } */
 }
 </style>

@@ -2,7 +2,7 @@
   <div
     v-for="item in items"
     :key="item.id"
-    class="flex flex-col items-center m-5 p-10 project-card"
+    class="flex flex-col  m-5 p-10 project-card"
   >
     <img :src="item.image" :alt="item.altText" class="project-img" />
     <h3 class="text-white m-2 text-xl">{{ item.title }}</h3>
@@ -21,15 +21,33 @@ const props = defineProps(["items"]);
 
 <style>
 .project-card {
-  background-color: rgba(215, 38, 61, 0.4);
+  background-color: rgba(27, 23, 37, 0.7);
   filter: saturate(70%);
   border-radius: 100px;
   width: 40%;
 }
 
 .project-img {
-  max-width: 100%;
-  height: 20vh;
+  max-width: 50%;
+  height: auto;
   border-radius: 50px;
+}
+
+@media screen and (max-width: 830px) {
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 40px;
+  }
+
+  .project-img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 50px;
+}
 }
 </style>

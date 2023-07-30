@@ -1,9 +1,10 @@
 <template>
   <section
-    class="flex flex-wrap flex-col justify-between items-center p-10 project-section"
+    class="flex flex-col items-center p-20 project-section"
+    id="projects"
   >
     <div>
-      <h2 class="text-white m-5 mb-10 text-3xl italic">
+      <h2 class="text-white text-3xl m-5 italic">
         What I've Been Working On
       </h2>
     </div>
@@ -40,6 +41,15 @@ onMounted(async () => {
 
 <style>
 .project-section {
-  background: linear-gradient(to bottom, #307351, #d7263d);
+  background: linear-gradient(to bottom, #1B1725, #534B62);
+}
+
+@media screen and (max-width: 700px) {
+  .project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 }
 </style>
