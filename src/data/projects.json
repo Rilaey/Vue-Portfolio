@@ -39,7 +39,7 @@
     "image": "src/assets/text-edit.jpeg",
     "altText": "PWA Logo",
     "title": "PWA Text Editor",
-    "description": "Need to write some code on the fly in a simple development environment? If so look no further because this is the application for you!",
+    "description": "Discover a user-friendly development environment for on-the-fly coding! Write, test, and organize code effortlessly. Enjoy smart suggestions, real-time error detection, and cloud-based access for seamless collaboration. Elevate your coding journey with us!",
     "github": "https://github.com/Rilaey/PWA-Text-Editor",
     "application": "https://rileys-text-editor.herokuapp.com/",
     "tools": "React, Express, IndexDB, CSS"

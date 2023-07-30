@@ -1,17 +1,21 @@
 <template>
-  <div>
+  <section
+    class="flex flex-wrap flex-col justify-between items-center p-10 project-section"
+  >
     <div>
-      <h2>What I've Been Working On</h2>
+      <h2 class="text-white m-5 mb-10 text-3xl italic">
+        What I've Been Working On
+      </h2>
     </div>
     <div v-if="isLoading">
       <!-- Show loading state while data is being fetched -->
       Loading...
     </div>
-    <div v-else>
+    <div v-else class="flex flex-wrap justify-center w-full">
       <!-- Pass the loadedData to the ChildComponent as a prop -->
       <ProjectCard :items="loadedData" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -33,3 +37,9 @@ onMounted(async () => {
   }
 });
 </script>
+
+<style>
+.project-section {
+  background: linear-gradient(to bottom, #307351, #d7263d);
+}
+</style>
