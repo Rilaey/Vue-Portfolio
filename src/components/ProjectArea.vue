@@ -29,9 +29,10 @@ const loadedData = ref([]);
 // Fetch JSON data when the component is mounted
 onMounted(async () => {
   try {
-    const response = await fetch("src/data/projects.json");
+    const response = await fetch("projects.json");
     loadedData.value = await response.json();
     isLoading.value = false;
+    console.log(loadedData.value)
   } catch (error) {
     console.error("Error fetching data:", error);
     isLoading.value = false;
