@@ -4,10 +4,11 @@
       <h1 class="m-3 text-white header-logo">{{ name }}</h1>
     </div>
     <div className="menu dropdown dropdown-bottom dropdown-end">
-      <label tabIndex="{0}" className="btn m-1 text-white">Menu</label>
+      <label tabIndex="{0}" className="btn m-1 text-white menu-icon-bg" @click="toggleDropdown"></label>
       <ul
         tabIndex="{0}"
         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+        v-if="showDropdown"
       >
         <li>
           <a
@@ -62,11 +63,17 @@
 
 <script setup>
 import { ref } from "vue"
-import { CoHamburgerMenu } from "oh-vue-icons/icons";
 
 defineProps({
   name: String
 });
+
+const showDropdown = ref(false);
+
+// Toggle the dropdown visibility
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+};
 
 const downloadPDF = () => {
   const fileName = "Rileys-Resume.pdf";
@@ -78,13 +85,20 @@ const downloadPDF = () => {
 
   link.dispatchEvent(new MouseEvent("click"));
 };
-
-const menuIcon = ref(CoHamburgerMenu)
 </script>
 
 <style>
 header {
   background: rgba(2, 24, 43, 1);
+}
+
+.menu-icon {
+  color: white;
+}
+
+.menu-icon-bg {
+  background: rgba(2, 24, 43, 1);
+  border: 2px solid white;
 }
 
 .header-logo {

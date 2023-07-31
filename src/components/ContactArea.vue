@@ -52,9 +52,9 @@ const githubImage = ref(GithubLogo);
     margin: 0%;
   }
 
-  /* .contact-section {
-    padding: 0px;
+  .contact-section {
+    padding-top: 60px;
     margin: 0px;
-  } */
+  }
 }
 </style>
