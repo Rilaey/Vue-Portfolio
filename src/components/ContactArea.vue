@@ -30,8 +30,8 @@ const githubImage = ref(GithubLogo);
 
 <style>
 .social-img {
-  width: 100%;
-  height: 10vh;
+  width: 100vw;
+  height: 100px;
 }
 
 .contact-section {
