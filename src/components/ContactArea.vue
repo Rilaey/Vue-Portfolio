@@ -30,7 +30,7 @@ const githubImage = ref(GithubLogo);
 
 <style>
 .social-img {
-  width: 100vw;
+  width: 100%;
   height: 100px;
 }
 
@@ -44,10 +44,10 @@ const githubImage = ref(GithubLogo);
   }
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 455px) {
   .social-img {
     width: 100%;
-    height: 10vh;
+    height: 100px;
     padding: 0%;
     margin: 0%;
   }
