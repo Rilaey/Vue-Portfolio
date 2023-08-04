@@ -1,7 +1,7 @@
 <template>
   <header class="flex justify-between items-center navbar">
     <div>
-      <h1 class="m-3 text-white header-logo">{{ name }}</h1>
+      <h1 class="m-3 text-white header-logo hover-head-text"></h1>
     </div>
     <div className="menu dropdown dropdown-bottom dropdown-end">
       <label tabIndex="{0}" className="btn m-1 text-white menu-icon-bg" @click="toggleDropdown"></label>
@@ -90,6 +90,18 @@ const downloadPDF = () => {
 <style>
 header {
   background: rgba(2, 24, 43, 1);
+}
+
+.hover-head-text::before {
+  content: "R";
+  opacity: 1;
+  transition: opacity 0.9s ease;
+}
+
+.hover-head-text:hover::before {
+  content: "Riley Newhart";
+  transition: opacity 0.9s ease;
+  opacity: 1;
 }
 
 .menu-icon {

@@ -1,7 +1,7 @@
 <template>
   <div class="test m-2" v-for="item in items" :key="item.id">
     <div
-      class="shadow-lg group container rounded-md max-w-sm flex justify-center items-center mx-auto content-div"
+      class="shadow-lg group container rounded-md max-w-sm flex flex-col justify-center items-center mx-auto content-div"
     >
       <div>
         <!-- <div class="w-full rounded-t-md"> -->
@@ -11,29 +11,27 @@
           class="project-img rounded-md"
         />
         <!-- </div> -->
-        <div
-          class="py-8 px-4 rounded-b-md fd-cl group-hover:opacity-25 card-body"
-        >
+        <div class="py-8 px-4 rounded-b-md fd-cl card-body">
           <span class="block text-lg text-white font-bold tracking-wide">{{
             item.title
           }}</span>
           <span class="block text-white text-sm">{{ item.description }} </span>
         </div>
       </div>
-      <div
-        class="absolute opacity-0 fd-sh group-hover:opacity-100 flex flex-wrap flex-col items-center justify-center mt-40"
-      >
-        <a
-          class="text-white italic tracking-wider leading-relaxed font-sans hover-text mt-2"
-          :href="item.github"
-          >Github Repo</a
-        >
-        <a
+      <div class="hover-card">
+        <div class="flex flex-col hover-card">
+          <a
           class="text-white italic tracking-wider leading-relaxed font-sans hover-text mt-2"
           :href="item.application"
-          >Live Application</a
+          ><button className="btn btn-primary m-3">Application</button></a>
+          <a
+          class="text-white italic tracking-wider leading-relaxed font-sans hover-text mt-2"
+          :href="item.github"
+          ><button className="btn btn-primary m-3">Github Repo</button></a>
+        </div>
+        <p
+          class="text-white italic leading-relaxed font-sans hover-text w-2/4 m-2"
         >
-        <p class="text-white italic leading-relaxed font-sans hover-text w-2/4 mt-2">
           Built with: {{ item.tools }}
         </p>
       </div>
@@ -56,14 +54,20 @@ const props = defineProps(["items"]);
   border-radius: 50px;
 }
 
-.hover-text {
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
+.hover-card {
+  background-color: rgba(27, 23, 37, 0.8);
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hover-text:hover {
-  color: red
+.btn-primary:hover {
+  background-color: #f5f5f5;
+  color: #000;
+  border: 1px solid #000;
 }
 
 .content-div {
@@ -77,18 +81,6 @@ const props = defineProps(["items"]);
   /* background-color: rgba(27, 23, 37, 1); */
   border-radius: 50px 50px 10px 10px;
   height: auto;
-}
-
-.content-div:hover {
-  background: rgba(2, 24, 43, 1);
-  border-radius: 50px 50px 10px 10px;
-}
-
-.content-div:hover .fd-cl {
-  opacity: 0.25;
-}
-.content-div:hover .fd-sh {
-  opacity: 1;
 }
 
 @media screen and (max-width: 830px) {

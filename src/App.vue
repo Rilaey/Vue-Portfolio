@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center">
-    <HeaderNavBar name="R" />
+    <HeaderNavBar />
     <AboutArea firstName="Riley" lastName="Newhart" />
     <ProjectArea />
     <ContactArea />

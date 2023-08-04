@@ -44,9 +44,9 @@ const githubImage = ref(GithubLogo);
   }
 }
 
-@media screen and (max-width: 455px) {
+@media screen and (max-width: 600px) {
   .social-img {
-    width: 100%;
+    width: 120px;
     height: 100px;
     padding: 0%;
     margin: 0%;
