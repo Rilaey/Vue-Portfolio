@@ -4,7 +4,12 @@
       <h1 class="m-3 text-white header-logo hover-head-text"></h1>
     </div>
     <div className="menu dropdown dropdown-bottom dropdown-end">
-      <label tabIndex="{0}" className="btn m-1 text-white menu-icon-bg" @click="toggleDropdown"></label>
+      <label
+        tabIndex="{0}"
+        className="btn m-1 text-white menu-icon-bg"
+        @click="toggleDropdown"
+        ></label
+      >
       <ul
         tabIndex="{0}"
         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
@@ -14,6 +19,7 @@
           <a
             class="m-3 text-white cursor-pointer"
             v-scroll-to="{ element: '#about', duration: 800 }"
+            @click.stop="toggleDropdown"
             >About</a
           >
         </li>
@@ -21,12 +27,14 @@
           <a
             class="m-3 text-white cursor-pointer"
             v-scroll-to="{ element: '#projects', duration: 800 }"
+            @click.stop="toggleDropdown"
             >Projects</a
           >
         </li>
         <li>
           <a
             class="m-3 text-white cursor-pointer"
+            @click.stop="toggleDropdown"
             v-scroll-to="{ element: '#contact', duration: 800 }"
             >Contact</a
           >
@@ -62,7 +70,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
 defineProps({
   name: String
@@ -70,10 +78,29 @@ defineProps({
 
 const showDropdown = ref(false);
 
-// Toggle the dropdown visibility
-const toggleDropdown = () => {
+const toggleDropdown = async (event) => {
+  const isLink = event.target.tagName.toLowerCase() === 'a';
+
+  if (showDropdown.value && isLink) {
+    const sectionId = event.target.getAttribute('v-scroll-to').split("'")[1];
+    await scrollToSection(sectionId);
+  }
+
   showDropdown.value = !showDropdown.value;
 };
+
+const scrollToSection = (sectionId) => {
+  return new Promise((resolve) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      section.addEventListener('scroll', () => {
+        resolve();
+      });
+    }
+  });
+};
+
 
 const downloadPDF = () => {
   const fileName = "Rileys-Resume.pdf";

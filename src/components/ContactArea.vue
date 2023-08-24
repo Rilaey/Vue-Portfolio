@@ -46,8 +46,8 @@ const githubImage = ref(GithubLogo);
 
 @media screen and (max-width: 600px) {
   .social-img {
-    width: 120px;
-    height: 100px;
+    width: 100vw;
+    height: 30%;
     padding: 0%;
     margin: 0%;
   }

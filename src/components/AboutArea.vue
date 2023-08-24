@@ -7,7 +7,7 @@
       <h2
         class="text-white m-5 mb-10 text-2xl italic animate__animated animate__bounceInLeft about-text about-head-text"
       >
-        Front End Developer<span
+        Full Stack Developer<span
           class="text-black animate__animated animate__bounceInLeft"
           > .</span
         >
